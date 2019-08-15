@@ -6,6 +6,10 @@ as needed.
 
 So far:
 
+## Working
+
+The fallthrough test correctly trips for case 2 and no others (GCC support both attribute and comment marking):
+
 ```
 $ gcc --version
 gcc (Ubuntu 7.4.0-1ubuntu1~18.04.1) 7.4.0
@@ -21,6 +25,10 @@ fallthrough.c:10:2: note: here
   ^~~~
 cc -Wall -o tests main.o fallthrough.o
 ```
+
+## Unsupported
+
+Clang doesn't know to check for [fallthrough in C code](https://bugs.llvm.org/show_bug.cgi?id=37135).
 
 ```
 $ clang --version
